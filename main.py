@@ -40,7 +40,7 @@ def main():
 
 
 def is_ready():
-    answer = input("Are you ready?")
+    answer = input("Are you ready?\n: ")
     return answer[:1] in "Yy"
 
 
