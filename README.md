@@ -10,7 +10,7 @@
 この板書を**参照性のために画像として保存したい**方も少なくないと思うのですが  
 標準の保存機能では[この程度][before]の画質しか実現しません
 
-一方、[Screenpresso][Screenpresso]という縦スクロール領域を連続してキャプチャできるアプリがあります  
+一方、**Screenpresso**という縦スクロール領域を連続してキャプチャできるアプリがあります  
 ということは、たいてい縦長である板書を横幅いっぱいに表示してScreenpressoを利用すれば高画質保存ができそうです  
 ところが、WhiteboardFoxは正確に縦スクロールするしくみを標準では備えていません  
 
@@ -25,8 +25,10 @@ PCはネットサーフィンくらいにしか使わないという方でも **
 
 1.  `Win`+`S`キーを押し検索ボックスに`sys`と入力、候補に出た`システム情報`を開き  
     `システムの種類`が`x64-ベース PC`であることを確認します
+
 1.  [Miniconda][Miniconda]のページから`Miniconda3 Windows 64-bit`をダウンロードし起動、  
     指示に従ってインストールします
+
 1.  `Win`+`S`キーを押し検索ボックスに`ana`と入力、候補に出た`Anaconda Prompt`を開き  
     次の例のとおりに入力します
     ```
@@ -44,24 +46,54 @@ PCはネットサーフィンくらいにしか使わないという方でも **
     (wbf_scroll)>
     ```
 
-1. 
-1. 
-1. 
-1. 
-1. 
-1. 
+1.  このページの`Clone or download`から`Download ZIP`を選択しダウンロードしたZIPを右クリック、  
+    `すべて展開`し`works-wbf_scroll-master`以下を先に作成した`tools\wbf_scroll`以下にコピーします
+
+    ![Download ZIP](images/download_zip.PNG)
+
+1.  `Win`+`S`キーを押し検索ボックスに`アプリ: screenpresso`と入力、  
+    Microsoft Storeから**Screenpresso**をインストールします
+
 
 # 利用方法
 
+1.  `Anaconda Prompt`に戻り、次の例のとおり入力します
+    ```
+    (wbf_scroll)>
+    (wbf_scroll)> python main.py 200 1 666666-4444-4444
+    ```
+    ただし、`200`としたのは1回のスクロール量、`1`としたのはスクロールごとの休止時間（秒）、  
+    `666666-4444-4444`としたのは保存したいホワイトボードのURL末尾のIDです
+    ```
+    Prepare Screenpresso scroll mode.
+    Are you ready?
+    :
+    ```
+    との表示とともにChromeウィンドウが立ち上がります  
+    ウィンドウを最大化し、板書を適度なスケールに調整します
+
+1.  `Win`+`Shift`+`PrintScr`キーを押し`スタート`を選択し、縦スクロール領域を設定します
+
+1.  `Anaconda Prompt`に戻り、次のとおり入力します
+    ```
+    Are you ready?
+    : y
+    ```
+
+1.  ホワイトボードの縦スクロールが始まります  
+    スクロールの合間にホワイトボード外を**左クリック**することで  
+    Screenpressoにキャプチャの合図をします
+
+1.  板書の末尾までスクロールしたらホワイトボード外を**右クリック**することで  
+    Screenpressoに終了の合図をします
+
+1.  Screenpressoが合成するのを待って完成です！
+
 # 結び
 
-Microsoft Whiteboard を使おう
+[Microsoft Whiteboard][Microsoft Whiteboard] を使いましょう
 
-[WhiteboardFox]:https://
-[before]:https://
-[Screenpresso]:https://
-[Miniconda]:https://
-[]:https://
-[]:https://
-[]:https://
-[]:https://
+[WhiteboardFox]:https://whiteboardfox.com/
+[before]:images/before.png
+[Miniconda]:https://docs.conda.io/en/latest/miniconda.html
+[Microsoft Whiteboard]:https://products.office.com/ja-jp/microsoft-whiteboard/digital-whiteboard-app
