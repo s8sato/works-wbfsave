@@ -33,14 +33,15 @@ PCはネットサーフィンくらいにしか使わないという方でも **
     (base) C:\Users\satun>
     (base) C:\Users\satun> mkdir tools
     (base) C:\Users\satun> cd tools
-    (base) C:\Users\satun\tools> mkdir whiteboardfox_capture
-    (base) C:\Users\satun\tools> cd whiteboardfox_capture
-    (base) C:\Users\satun\tools\whiteboardfox_capture>
+    (base) C:\Users\satun\tools> mkdir wbf_scroll
+    (base) C:\Users\satun\tools> cd wbf_scroll
+    (base) C:\Users\satun\tools\wbf_scroll>
     ```
     上記最終行を`(base)>`と略記することにすると  
     ```
-    (base)> conda create -n whiteboardfox_capture selenium chromedriver-binary
-    activate whiteboardfox_capture
+    (base)> conda create -n wbf_scroll selenium chromedriver-binary
+    (base)> activate wbf_scroll
+    (wbf_scroll)>
     ```
 
 1. 
