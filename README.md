@@ -74,10 +74,12 @@ PCはネットサーフィンくらいにしか使わないという方でも **
 
 1.  `Win`+`Shift`+`PrintScr`キーを押し`スタート`を選択し、縦スクロール領域を設定します
 
-1.  `Anaconda Prompt`に戻り、次のとおり入力します
+1.  `Anaconda Prompt`に戻り、`y`と入力します
     ```
     Are you ready?
     : y
+    Left-click somewhere during every sleep.
+    Right-click somewhere and press Ctrl+C at the end of your picture.
     ```
 
 1.  ホワイトボードの縦スクロールが始まります  
@@ -87,6 +89,9 @@ PCはネットサーフィンくらいにしか使わないという方でも **
 1.  板書の末尾までスクロールしたらホワイトボード外を**右クリック**することで  
     Screenpressoに終了の合図をします  
     他方のプログラムは`Anaconda Prompt`に`Ctrl+C`を入力することで終了します
+    ```
+    Bye!
+    ```
 
 1.  Screenpressoが合成するのを待って完成です！
 
