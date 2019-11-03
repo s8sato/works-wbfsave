@@ -25,7 +25,11 @@ def main(driver, scroll, sleep):
     if is_ready():
         print("Left-click somewhere during every sleep.")
         print("Right-click somewhere and press Ctrl+C at the end of your picture.")
-        scroll_and_sleep(driver, scroll, sleep)
+        try:
+            scroll_and_sleep(driver, scroll, sleep)
+        except KeyboardInterrupt:
+            print("Bye!")
+            return
     else:
         main(driver, scroll, sleep)
 
@@ -56,9 +60,7 @@ if __name__ == '__main__':
     dri = webdriver.Chrome()
 
     initialize(dri, whi)
-    try:
-        main(dri, scr, sle)
-    except KeyboardInterrupt:
-        print("Bye!")
-        dri.quit()
-        sys.exit()
+    main(dri, scr, sle)
+
+    dri.quit()
+    sys.exit()
