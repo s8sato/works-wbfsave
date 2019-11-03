@@ -56,6 +56,9 @@ if __name__ == '__main__':
     dri = webdriver.Chrome()
 
     initialize(dri, whi)
-    main(dri, scr, sle)
-
-    # dri.quit()
+    try:
+        main(dri, scr, sle)
+    except KeyboardInterrupt:
+        print("Bye!")
+        dri.quit()
+        sys.exit()
