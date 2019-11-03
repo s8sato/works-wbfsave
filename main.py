@@ -5,16 +5,8 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
 import sys
 
-# コマンドライン引数の設計
-# python main.py scroll sleep whiteboard
-scroll = sys.argv[1]  # 1回のスクロール量
-sleep = sys.argv[2]  # 次のスクロールまでの休止時間（秒）
-whiteboard = sys.argv[3]  # キャプチャ対象のホワイトボードID
 
-driver = webdriver.Chrome()
-
-
-def initialize():
+def initialize(driver, whiteboard):
     # 指定のホワイトボードを開く
     driver.get("https://whiteboardfox.com/{}".format(whiteboard))
 
@@ -28,15 +20,14 @@ def initialize():
     element.click()
 
 
-def main():
+def main(driver, scroll, sleep):
     print("Prepare Screenpresso scroll mode.")
     if is_ready():
-        print("Left-click during every sleep.")
-        print("Right-click and press Ctrl+C at the end of your picture.")
-        scroll_and_sleep()
+        print("Left-click somewhere during every sleep.")
+        print("Right-click somewhere and press Ctrl+C at the end of your picture.")
+        scroll_and_sleep(driver, scroll, sleep)
     else:
-        main()
-    # driver.quit()
+        main(driver, scroll, sleep)
 
 
 def is_ready():
@@ -44,15 +35,27 @@ def is_ready():
     return answer[:1] in "Yy"
 
 
-def scroll_and_sleep():
+def scroll_and_sleep(driver, scroll, sleep):
     actions = ActionChains(driver)
     element = driver.find_element_by_id("canvasId")
-    actions.pause(int(sleep))
     actions.drag_and_drop_by_offset(element, 0, (-1) * int(scroll))
+    actions.pause(int(sleep))
     actions.perform()
-    scroll_and_sleep()
+    scroll_and_sleep(driver, scroll, sleep)
 
 
 if __name__ == '__main__':
-    initialize()
-    main()
+    """直接に実行されたときの処理"""
+
+    # コマンドライン引数の設計
+    # python main.py scroll sleep whiteboard
+    scr = sys.argv[1]  # 1回のスクロール量
+    sle = sys.argv[2]  # 次のスクロールまでの休止時間（秒）
+    whi = sys.argv[3]  # キャプチャ対象のホワイトボードID
+
+    dri = webdriver.Chrome()
+
+    initialize(dri, whi)
+    main(dri, scr, sle)
+
+    # dri.quit()
