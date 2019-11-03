@@ -89,9 +89,27 @@ PCはネットサーフィンくらいにしか使わないという方でも **
 
 1.  Screenpressoが合成するのを待って完成です！
 
+# 課題
+
+次の問題があり、解決が期待されます
+
+* 板書が長すぎるとScreenpressoのキャパシティを超えてしまう
+* 板書のように疎な画像に対してはScreenpressoによる合成が失敗しがち
+
+ひとつの方針は  
+**Screenpressoから独立したスクリプトに育てる**ことでしょう  
+いまや定量スクロールは実現したので  
+あとは同量のheightの固定領域のキャプチャを並べれば良いわけです
+
+さらに  
+余白の自動判定ができれば次のようなことも可能でしょう
+1. Slackで `/wbf 666666-4444-4444` のようなコマンドを一発たたく
+   * AWS Lambdaなどに置いたスクリプトが走る
+2. 直後に板書の画像が投稿される
+
 # 結び
 
-[Microsoft Whiteboard][Microsoft Whiteboard] を使いましょう
+標準で高画質保存ができる [Microsoft Whiteboard][Microsoft Whiteboard] を使いましょう
 
 [WhiteboardFox]:https://whiteboardfox.com/
 [before]:images/before.png
