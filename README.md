@@ -113,8 +113,10 @@ PCはネットサーフィンくらいにしか使わないという方でも **
 
 13. 次の表示があり`storage`ディレクトリ以下に結合ファイルが生成されるので、確認してください
     ```
+    Hello!
     Successfully 17 images are clipped and concatenated to:
     storage\out.pdf
+    Bye!
     ```
 
 14. 納得するまで[同手順](#the-first-configuration-c)を繰り返して各数値を調整します
@@ -197,5 +199,6 @@ PCはネットサーフィンくらいにしか使わないという方でも **
 
 [WhiteboardFox]:https://whiteboardfox.com/
 [before]:images/before.png
+[after]:images/after.pdf
 [Miniconda]:https://docs.conda.io/en/latest/miniconda.html
 [Microsoft Whiteboard]:https://products.office.com/ja-jp/microsoft-whiteboard/digital-whiteboard-app
