@@ -32,7 +32,7 @@ if __name__ == '__main__':
     # python concat.py ratio top left right output
     rat = float(sys.argv[1])  # スクロール量に対する、クリップ領域の縦幅の比率
     top = int(sys.argv[2])
-    bot = int(top + c['scr'] * rat)
+    bot = int(top + c['gather']['scr'] * rat)
     lef = int(sys.argv[3])
     rig = int(sys.argv[4])
     out = sys.argv[5]  # 出力ファイル名
