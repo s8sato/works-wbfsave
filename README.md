@@ -79,7 +79,7 @@ PCはネットサーフィンくらいにしか使わないという方でも **
 8.  板書の末尾までスクロールしたら`Ctrl+C`を入力します
     ```
     Ctrl+C pressed.
-    some screenshots saved.
+    17 screenshots saved.
     Now terminating driver...
     Bye!
     ```
@@ -111,7 +111,7 @@ PCはネットサーフィンくらいにしか使わないという方でも **
     `100` `150` `2650`としたのはそれぞれ上、左、右のトリミング座標、    
     `out.pdf`としたのは結合の成果ファイル名で、拡張子は他に`png` `jpg`が可能です
 
-13. 次の表示があり`storage`ディレクトリ以下に結合ファイルが生成されるので、確認してください
+13. 次の表示があり`storage`ディレクトリ以下に成果ファイルが生成されるので、確認してください
     ```
     Hello!
     Successfully 17 images are clipped and concatenated to:
@@ -171,7 +171,7 @@ PCはネットサーフィンくらいにしか使わないという方でも **
 1.  板書の末尾までスクロールしたら`Ctrl+C`を入力します
     ```
     Ctrl+C pressed.
-    some screenshots saved.
+    17 screenshots saved.
     Now terminating driver...
     ```
 
