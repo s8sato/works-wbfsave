@@ -19,8 +19,7 @@ PCはネットサーフィンくらいにしか使わないという方でも **
 # 導入方法
 
 0.  MinicondaまたはAnacondaのインストールがお済みの方は  
-    [Make Project and Environment](#Make Project and Environment)
-    から始めてください
+    [Make Project and Environment](#make-project-and-environment)から始めてください
 
     ## Conda Installation
 
@@ -86,7 +85,7 @@ PCはネットサーフィンくらいにしか使わないという方でも **
     ```
 
 9.  スクロール量と休止時間を変更したい場合は再び
-    [同手順](#The First Configuration G)
+    [同手順](#the-first-configuration-g)
     を行います
     
 10. スクロール量と休止時間がこれで良ければ次の例のように入力します
@@ -118,7 +117,7 @@ PCはネットサーフィンくらいにしか使わないという方でも **
     storage\out.pdf
     ```
 
-14. 納得するまで[同手順](#The First Configuration C)を繰り返して各数値を調整します
+14. 納得するまで[同手順](#the-first-configuration-c)を繰り返して各数値を調整します
 
 15. 納得したら次の例のように入力します
     ```
