@@ -1,0 +1,16 @@
+{
+  "temporary_shots_dir": "tempshots",
+  "temporary_shot_prefix": "tempshot",
+  "temporary_img_for_pdf": "vconcat.png",
+  "out_dir": "storage",
+  "gather": {
+    "scr": 360,
+    "slp": 1
+  },
+  "concat": {
+    "rat": 2.0,
+    "top": 100,
+    "lef": 150,
+    "rig": 2650
+  }
+}
