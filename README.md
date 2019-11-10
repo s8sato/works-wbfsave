@@ -19,8 +19,7 @@ PCはネットサーフィンくらいにしか使わないという方でも **
 # 導入方法
 
 0.  MinicondaまたはAnacondaのインストールがお済みの方は  
-    [Make Project and Environment](#Make Project and Environment)
-    から始めてください
+    [Make Project and Environment](#make-project-and-environment)から始めてください
 
     ## Conda Installation
 
@@ -80,13 +79,13 @@ PCはネットサーフィンくらいにしか使わないという方でも **
 8.  板書の末尾までスクロールしたら`Ctrl+C`を入力します
     ```
     Ctrl+C pressed.
-    some screenshots saved.
+    17 screenshots saved.
     Now terminating driver...
     Bye!
     ```
 
 9.  スクロール量と休止時間を変更したい場合は再び
-    [同手順](#The First Configuration G)
+    [同手順](#the-first-configuration-g)
     を行います
     
 10. スクロール量と休止時間がこれで良ければ次の例のように入力します
@@ -112,13 +111,15 @@ PCはネットサーフィンくらいにしか使わないという方でも **
     `100` `150` `2650`としたのはそれぞれ上、左、右のトリミング座標、    
     `out.pdf`としたのは結合の成果ファイル名で、拡張子は他に`png` `jpg`が可能です
 
-13. 次の表示があり`storage`ディレクトリ以下に結合ファイルが生成されるので、確認してください
+13. 次の表示があり`storage`ディレクトリ以下に成果ファイルが生成されるので、確認してください
     ```
+    Hello!
     Successfully 17 images are clipped and concatenated to:
     storage\out.pdf
+    Bye!
     ```
 
-14. 納得するまで[同手順](#The First Configuration C)を繰り返して各数値を調整します
+14. 納得するまで[同手順](#the-first-configuration-c)を繰り返して各数値を調整します
 
 15. 納得したら次の例のように入力します
     ```
@@ -170,7 +171,7 @@ PCはネットサーフィンくらいにしか使わないという方でも **
 1.  板書の末尾までスクロールしたら`Ctrl+C`を入力します
     ```
     Ctrl+C pressed.
-    some screenshots saved.
+    17 screenshots saved.
     Now terminating driver...
     ```
 
@@ -198,5 +199,6 @@ PCはネットサーフィンくらいにしか使わないという方でも **
 
 [WhiteboardFox]:https://whiteboardfox.com/
 [before]:images/before.png
+[after]:images/after.pdf
 [Miniconda]:https://docs.conda.io/en/latest/miniconda.html
 [Microsoft Whiteboard]:https://products.office.com/ja-jp/microsoft-whiteboard/digital-whiteboard-app

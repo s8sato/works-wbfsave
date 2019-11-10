@@ -8,9 +8,6 @@ import os
 import json
 import glob
 
-with open('config.json') as f:
-    c = json.load(f)
-
 
 def initialize(driver, whiteboard):
     # 指定のホワイトボードを開く
@@ -24,12 +21,12 @@ def initialize(driver, whiteboard):
     element.click()
 
 
-def main(driver, scroll, sleep, count):
+def loop(cfg, driver, scroll, sleep, count):
     if is_ready():
         print("Ctrl+C at the end of your picture.")
-        shot_and_scroll(driver, scroll, sleep, count)
+        shot_and_scroll(cfg, driver, scroll, sleep, count)
     else:
-        main(driver, scroll, sleep, count)
+        loop(cfg, driver, scroll, sleep, count)
 
 
 def is_ready():
@@ -37,41 +34,28 @@ def is_ready():
     return answer[:1] in 'Yy'
 
 
-def shot_and_scroll(driver, scroll, sleep, count):
-    if count == 0:
-        sweep_tempshots()
+def shot_and_scroll(cfg, driver, scroll, sleep, count):
     filename = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                            c['temporary_shots_dir'],
-                            c['temporary_shot_prefix'] + '{:03}.png'.format(count))
+                            cfg['temporary_shots_dir'],
+                            cfg['temporary_shot_prefix'] + '{:03}.png'.format(count))
     driver.save_screenshot(filename)
     actions = ActionChains(driver)
     element = driver.find_element_by_id('canvasId')
     actions.drag_and_drop_by_offset(element, 0, (-1) * scroll)
     actions.pause(sleep)
     actions.perform()
-    shot_and_scroll(driver, scroll, sleep, count + 1)
+    shot_and_scroll(cfg, driver, scroll, sleep, count + 1)
 
 
-def sweep_tempshots():
-    name_pattern = os.path.join(c['temporary_shots_dir'],
-                                c['temporary_shot_prefix'] + '*.png')
-    tempshots = glob.glob(name_pattern)
-    for tempshot in tempshots:
-        os.remove(tempshot)
+def sweep(name_pattern):
+    for target in glob.glob(name_pattern):
+        os.remove(target)
 
 
-if __name__ == '__main__':
-    """直接に実行されたときの処理"""
-    print("Hello!")
-    # コマンドライン引数の設計
-    # python gather.py scroll sleep whiteboard count
-    scr = int(sys.argv[1])  # 1回のスクロール量
-    slp = int(sys.argv[2])  # 次のスクロールまでの休止時間（秒）
-    wtb = sys.argv[3]  # キャプチャ対象のホワイトボードID
-    cnt = int(sys.argv[4])  # 一時保存ファイル名の連番の開始位置
-
+def main(config, scr, slp, wtb, cnt):
+    with open(config) as f:
+        cfg = json.load(f)
     drv = webdriver.Chrome()
-
     try:
         initialize(drv, wtb)
     except KeyboardInterrupt:
@@ -80,13 +64,33 @@ if __name__ == '__main__':
         drv.quit()
         print("Bye!")
         sys.exit()
+    name_pattern = os.path.join(cfg['temporary_shots_dir'],
+                                cfg['temporary_shot_prefix'] + '*.png')
+    if cnt == 0:
+        sweep(name_pattern)
+    numshots0 = len(glob.glob(name_pattern))
     try:
-        main(drv, scr, slp, cnt)
+        loop(cfg, drv, scr, slp, cnt)
     except KeyboardInterrupt:
         print("Ctrl+C pressed.")
-        print("{} screenshots saved.".format("some"))
+        numshots1 = len(glob.glob(name_pattern))
+        print("{} screenshots saved.".format(numshots1 - numshots0))
         print("Now terminating driver...")
     finally:
         drv.quit()
-        print("Bye!")
+
+
+if __name__ == '__main__':
+    """直接に実行されたときの処理"""
+    print("Hello!")
+
+    # コマンドライン引数の設計
+    # python gather.py scroll sleep whiteboard count
+    scr = int(sys.argv[1])  # 1回のスクロール量
+    slp = int(sys.argv[2])  # 次のスクロールまでの休止時間（秒）
+    wtb = sys.argv[3]  # キャプチャ対象のホワイトボードID
+    cnt = int(sys.argv[4])  # 一時保存ファイル名の連番の開始位置
+
+    main('config.json', scr, slp, wtb, cnt)
+    print("Bye!")
 
