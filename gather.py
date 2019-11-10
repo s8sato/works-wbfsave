@@ -44,7 +44,7 @@ def shot_and_scroll(cfg, driver, scroll, sleep, count):
     actions.drag_and_drop_by_offset(element, 0, (-1) * scroll)
     actions.pause(sleep)
     actions.perform()
-    shot_and_scroll(driver, scroll, sleep, count + 1)
+    shot_and_scroll(cfg, driver, scroll, sleep, count + 1)
 
 
 def sweep(name_pattern):
